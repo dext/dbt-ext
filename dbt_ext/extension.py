@@ -36,7 +36,7 @@ class dbt(ExtensionBase):
         Raises:
             MissingProfileTypeError: If the profile type is not set.
         """
-        self.dbt_bin = "dbt"
+        self.dbt_bin = os.getenv("DBT_BIN", "dbt")
         self.dbt_ext_type = os.getenv("DBT_EXT_TYPE", None)
         if not self.dbt_ext_type:
             raise MissingProfileTypeError("DBT_EXT_TYPE must be set")
